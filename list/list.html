@@ -1,0 +1,20 @@
+<h1> <i class='fa fa-arrow-left backButton' ng-click='goBack()'></i> {{ listTitle }}</h1>
+<div class="tasks-container">
+  <ul class='lists'>
+    <li ng-repeat='item in lists[listTitle]'>
+      <span ng-dblclick="isEditFormOpen = !isEditFormOpen" class='item'> {{ item }} </span>
+      <!-- <label ng-dblclick="editTodo(item)">{{ item }}</label> -->
+      <div ng-click='deleteItem(item)'><img src="images/icon_close.svg"/></div>
+      <form ng-show="isEditFormOpen" ng-submit="doneEditing(item)">
+        <input class="edit" ng-model="todo.title" ng-blur="doneEditing(id)" todo-escape="revertEditing(id)" todo-focus="todo == editedTodo">
+      </form>
+    </li>
+  </ul>
+
+  <br><br>
+
+  <div class='form'>
+    <input type='text' id='todoItem' class='inputs' ng-model='item' placeholder='Click here add new item'>
+    <div class='inputButton' ng-click='createItem()'> <img src="images/icon_add.svg"/> </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="lists-container">
+  <div class='form'>
+    <input type='text' id='todoTitle' class='inputs' ng-model='viewTitle' placeholder='Todo list title'>
+    <div class='inputButton' ng-click='createList()'> + add list </div>
+  </div>
+  <br><br>
+  <ul class='lists'>
+    <li ng-repeat='(key, value) in lists'>
+      <span class='item clickable' ng-click='gotoList(key)'> {{ key }} </span>
+      <div id='deleteList' ng-click='deleteList(key)'><img src="images/icon_close.svg"/></div>
+    </li>
+  </ul>
+
+
+</div>
